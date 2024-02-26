@@ -1,8 +1,6 @@
 name: Build and push image
 on:
-  push:
-    branches:
-      - 'main'
+  workflow_dispatch
 
 jobs:
   build-and-push:
@@ -21,7 +19,7 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: qbittorrent-wg
-        tags: latest ${{ github.sha }}
+        tags: latest
         containerfiles: |
           ./Containerfile
 
